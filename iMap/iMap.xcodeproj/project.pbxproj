@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		67148C592C57A90B00B34B1A /* LocationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67148C582C57A90B00B34B1A /* LocationHelper.swift */; };
+		679ADBFD2C58CEF80061158F /* PlaceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679ADBFC2C58CEF80061158F /* PlaceTableViewController.swift */; };
+		679ADBFF2C58CF360061158F /* CLLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679ADBFE2C58CF360061158F /* CLLocation.swift */; };
+		679ADC012C58CF620061158F /* PlaceAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679ADC002C58CF620061158F /* PlaceAnnotation.swift */; };
 		67B41EFF2C50D1BD00FB9D9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B41EFE2C50D1BD00FB9D9A /* AppDelegate.swift */; };
 		67B41F012C50D1BD00FB9D9A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B41F002C50D1BD00FB9D9A /* SceneDelegate.swift */; };
 		67B41F032C50D1BD00FB9D9A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B41F022C50D1BD00FB9D9A /* ViewController.swift */; };
@@ -19,6 +22,9 @@
 
 /* Begin PBXFileReference section */
 		67148C582C57A90B00B34B1A /* LocationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHelper.swift; sourceTree = "<group>"; };
+		679ADBFC2C58CEF80061158F /* PlaceTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceTableViewController.swift; sourceTree = "<group>"; };
+		679ADBFE2C58CF360061158F /* CLLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocation.swift; sourceTree = "<group>"; };
+		679ADC002C58CF620061158F /* PlaceAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceAnnotation.swift; sourceTree = "<group>"; };
 		67B41EFB2C50D1BD00FB9D9A /* iMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		67B41EFE2C50D1BD00FB9D9A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		67B41F002C50D1BD00FB9D9A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -41,6 +47,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		67148C602C57B91600B34B1A /* Annotations */ = {
+			isa = PBXGroup;
+			children = (
+				679ADC002C58CF620061158F /* PlaceAnnotation.swift */,
+			);
+			path = Annotations;
+			sourceTree = "<group>";
+		};
+		67148C632C57BA4100B34B1A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				679ADBFE2C58CF360061158F /* CLLocation.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		679ADBFB2C58CEDC0061158F /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				679ADBFC2C58CEF80061158F /* PlaceTableViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		67B41EF22C50D1BD00FB9D9A = {
 			isa = PBXGroup;
 			children = (
@@ -60,6 +90,9 @@
 		67B41EFD2C50D1BD00FB9D9A /* iMap */ = {
 			isa = PBXGroup;
 			children = (
+				679ADBFB2C58CEDC0061158F /* Controllers */,
+				67148C632C57BA4100B34B1A /* Extensions */,
+				67148C602C57B91600B34B1A /* Annotations */,
 				67B41EFE2C50D1BD00FB9D9A /* AppDelegate.swift */,
 				67B41F002C50D1BD00FB9D9A /* SceneDelegate.swift */,
 				67B41F022C50D1BD00FB9D9A /* ViewController.swift */,
@@ -144,10 +177,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				679ADC012C58CF620061158F /* PlaceAnnotation.swift in Sources */,
 				67B41F092C50D1BD00FB9D9A /* iMap.xcdatamodeld in Sources */,
 				67B41F032C50D1BD00FB9D9A /* ViewController.swift in Sources */,
 				67B41EFF2C50D1BD00FB9D9A /* AppDelegate.swift in Sources */,
+				679ADBFF2C58CF360061158F /* CLLocation.swift in Sources */,
 				67B41F012C50D1BD00FB9D9A /* SceneDelegate.swift in Sources */,
+				679ADBFD2C58CEF80061158F /* PlaceTableViewController.swift in Sources */,
 				67148C592C57A90B00B34B1A /* LocationHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,10 +1,3 @@
-//
-//  ViewController.swift
-//  map
-//
-//  Created by Tung on 21/07/2024.
-//
-
 import UIKit
 import MapKit
 
@@ -16,6 +9,7 @@ final class ViewController: UIViewController {
         let map = MKMapView()
         map.showsUserLocation = true
         map.translatesAutoresizingMaskIntoConstraints = false
+        map.isZoomEnabled = true
         return map
     }()
     
@@ -23,6 +17,7 @@ final class ViewController: UIViewController {
         let searchBar = UITextField()
         searchBar.layer.cornerRadius = 10
         searchBar.clipsToBounds = true
+        searchBar.delegate = self
         searchBar.backgroundColor = UIColor.white
         searchBar.placeholder = "Search"
         searchBar.leftView = UIView(frame: CGRect(x : 0, y : 0, width : 10, height : 0))
@@ -59,12 +54,51 @@ final class ViewController: UIViewController {
         mapView.heightAnchor.constraint(equalTo: view.heightAnchor).isActive = true
         mapView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         mapView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        
+        let pinchGesture = UIPinchGestureRecognizer(target: self, action: #selector(handlePinch(_:)))
+        mapView.addGestureRecognizer(pinchGesture)
+    }
+    
+    @objc private func handlePinch(_ gesture: UIPinchGestureRecognizer) {
+    }
+    
+    private func findNearbyPlaces(by query: String) {
+        
+        mapView.removeAnnotations(mapView.annotations)
+        
+        let request = MKLocalSearch.Request()
+        request.naturalLanguageQuery = query
+        request.region = mapView.region
+        
+        let search = MKLocalSearch(request: request)
+        search.start {response, error in
+            guard let response = response, error == nil else {return}
+            
+            print(response.mapItems)
+        }
+    }
+}
+
+extension ViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        let text = textField.text ?? ""
+        if !text.isEmpty{
+            textField.resignFirstResponder()
+            findNearbyPlaces(by: text)
+        }
+        return true
     }
 }
 
 extension ViewController: CLLocationManagerDelegate{
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    }
+    
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        LocationHelper.checkLocationAuthorization(locationManager: locationManager, mapView: mapView)
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {

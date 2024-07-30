@@ -62,19 +62,34 @@ final class ViewController: UIViewController {
     @objc private func handlePinch(_ gesture: UIPinchGestureRecognizer) {
     }
     
+    private func showPlacesSheet(places: [PlaceAnnotation]) {
+        guard let locationManager = locationManager,
+        let userLocation = locationManager.location  else { return }
+        let placesTableViewController = PlacesTableViewController(userLocation: userLocation,
+                                                                  places: places)
+        placesTableViewController.modalPresentationStyle = .pageSheet
+        
+        if let sheet = placesTableViewController.sheetPresentationController{
+            sheet.prefersGrabberVisible = true
+            sheet.detents = [.medium(), .large()]
+            present(placesTableViewController, animated: true)
+        }
+    }
+    
     private func findNearbyPlaces(by query: String) {
-        
         mapView.removeAnnotations(mapView.annotations)
-        
         let request = MKLocalSearch.Request()
         request.naturalLanguageQuery = query
         request.region = mapView.region
         
         let search = MKLocalSearch(request: request)
-        search.start {response, error in
-            guard let response = response, error == nil else {return}
-            
-            print(response.mapItems)
+        search.start { [ weak self ] response, error in
+            guard let response = response, error == nil else { return }
+            let places = response.mapItems.map(PlaceAnnotation.init)
+            places.forEach { place in
+                self?.mapView.addAnnotation(place)
+            }
+            self?.showPlacesSheet(places: places)
         }
     }
 }

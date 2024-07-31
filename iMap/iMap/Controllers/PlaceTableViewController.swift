@@ -5,7 +5,7 @@ import MapKit
 final class PlacesTableViewController: UITableViewController {
     
     var userLocation: CLLocation
-    let places: [PlaceAnnotation]
+    var places: [PlaceAnnotation]
     
     init(userLocation: CLLocation, places: [PlaceAnnotation]) {
         self.userLocation = userLocation
@@ -13,11 +13,25 @@ final class PlacesTableViewController: UITableViewController {
         super.init(nibName: nil, bundle: nil)
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "PlaceCell")
+        self.places.swapAt(indexForSelectedRow ?? 0, 0)
+    }
+    
+    private var indexForSelectedRow: Int? {
+        self.places.firstIndex(where: { $0.selected == true })
     }
     
     override func tableView(_ tableView: UITableView,
                             numberOfRowsInSection section: Int) -> Int {
         places.count
+    }
+    
+    private func calculateDistance(from: CLLocation, to: CLLocation) -> CLLocationDistance {
+        from.distance(from: to)
+    }
+    
+    private func formatDistance(_ distance: CLLocationDistance) -> String {
+        let meters = Measurement(value: distance, unit: UnitLength.kilometers)
+        return meters.converted(to: .kilometers).formatted()
     }
     
     override func tableView(_ tableView: UITableView,
@@ -27,8 +41,9 @@ final class PlacesTableViewController: UITableViewController {
         let place = places[indexPath.row]
         var content = cell.defaultContentConfiguration()
         content.text = place.name
-        content.secondaryText = "Secondary Text"
+        content.secondaryText = formatDistance(calculateDistance(from: userLocation, to: place.location))
         cell.contentConfiguration = content
+        cell.backgroundColor = place.selected ? UIColor.lightGray: UIColor.clear
         return cell
     }
     

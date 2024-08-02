@@ -81,6 +81,8 @@ final class ViewController: UIViewController {
     
     private func findNearbyPlaces(by query: String) {
         mapView.removeAnnotations(mapView.annotations)
+        mapView.removeOverlays(mapView.overlays)
+        
         let request = MKLocalSearch.Request()
         request.naturalLanguageQuery = query
         request.region = mapView.region
@@ -98,13 +100,7 @@ final class ViewController: UIViewController {
             }
         }
     }
-    
-    private func clearAllSelectedPlace() {
-        self.places = self.places.map { place in
-            place.selected = false
-            return place
-        }
-    }
+
     
     private func calculateRoute(to destination: CLLocationCoordinate2D) {
         guard let userLocation = locationManager?.location?.coordinate else { return }
@@ -144,6 +140,13 @@ extension ViewController: UITextFieldDelegate {
 }
 
 extension ViewController: MKMapViewDelegate {
+    
+    private func clearAllSelectedPlace() {
+        self.places = self.places.map { place in
+            place.selected = false
+            return place
+        }
+    }
     
     func mapView(_ mapView: MKMapView, didSelect annotation: MKAnnotation) {
         clearAllSelectedPlace()

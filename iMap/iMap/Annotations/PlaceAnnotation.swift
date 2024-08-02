@@ -6,6 +6,7 @@ class PlaceAnnotation: MKPointAnnotation {
     let mapItem: MKMapItem
     let id = UUID()
     var selected: Bool = false
+    var isFavorite: Bool = false
     
     init(mapItem: MKMapItem) {
         self.mapItem = mapItem

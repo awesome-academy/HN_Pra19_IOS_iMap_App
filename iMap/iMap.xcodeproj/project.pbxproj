@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		670164B92C6002E7008DC254 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670164B82C6002E7008DC254 /* CoreDataService.swift */; };
 		67148C592C57A90B00B34B1A /* LocationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67148C582C57A90B00B34B1A /* LocationHelper.swift */; };
 		67903DBA2C5B7FFE00452925 /* PlaceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67903DB92C5B7FFE00452925 /* PlaceDetailViewController.swift */; };
 		67903DBC2C5B959E00452925 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67903DBB2C5B959E00452925 /* String.swift */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		670164B82C6002E7008DC254 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		67148C582C57A90B00B34B1A /* LocationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHelper.swift; sourceTree = "<group>"; };
 		67903DB92C5B7FFE00452925 /* PlaceDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailViewController.swift; sourceTree = "<group>"; };
 		67903DBB2C5B959E00452925 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
@@ -51,6 +53,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		670164B72C60027E008DC254 /* CoreDataService */ = {
+			isa = PBXGroup;
+			children = (
+				670164B82C6002E7008DC254 /* CoreDataService.swift */,
+			);
+			path = CoreDataService;
+			sourceTree = "<group>";
+		};
 		67148C602C57B91600B34B1A /* Annotations */ = {
 			isa = PBXGroup;
 			children = (
@@ -96,6 +106,7 @@
 		67B41EFD2C50D1BD00FB9D9A /* iMap */ = {
 			isa = PBXGroup;
 			children = (
+				670164B72C60027E008DC254 /* CoreDataService */,
 				679ADBFB2C58CEDC0061158F /* Controllers */,
 				67148C632C57BA4100B34B1A /* Extensions */,
 				67148C602C57B91600B34B1A /* Annotations */,
@@ -191,6 +202,7 @@
 				67B41EFF2C50D1BD00FB9D9A /* AppDelegate.swift in Sources */,
 				679ADBFF2C58CF360061158F /* CLLocation.swift in Sources */,
 				67B41F012C50D1BD00FB9D9A /* SceneDelegate.swift in Sources */,
+				670164B92C6002E7008DC254 /* CoreDataService.swift in Sources */,
 				679ADBFD2C58CEF80061158F /* PlaceTableViewController.swift in Sources */,
 				67148C592C57A90B00B34B1A /* LocationHelper.swift in Sources */,
 			);

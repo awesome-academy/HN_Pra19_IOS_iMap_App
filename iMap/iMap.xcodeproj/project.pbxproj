@@ -61,12 +61,12 @@
 			path = CoreDataService;
 			sourceTree = "<group>";
 		};
-		67148C602C57B91600B34B1A /* Annotations */ = {
+		67148C602C57B91600B34B1A /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				679ADC002C58CF620061158F /* PlaceAnnotation.swift */,
 			);
-			path = Annotations;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		67148C632C57BA4100B34B1A /* Extensions */ = {
@@ -76,6 +76,32 @@
 				67903DBB2C5B959E00452925 /* String.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		672A3A702C6364A3004D36EC /* Apps */ = {
+			isa = PBXGroup;
+			children = (
+				67B41EFE2C50D1BD00FB9D9A /* AppDelegate.swift */,
+				67B41F002C50D1BD00FB9D9A /* SceneDelegate.swift */,
+			);
+			path = Apps;
+			sourceTree = "<group>";
+		};
+		672A3A712C63658B004D36EC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				67B41F022C50D1BD00FB9D9A /* ViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		672A3A722C6365F6004D36EC /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				67148C632C57BA4100B34B1A /* Extensions */,
+				67148C582C57A90B00B34B1A /* LocationHelper.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		679ADBFB2C58CEDC0061158F /* Controllers */ = {
@@ -106,19 +132,17 @@
 		67B41EFD2C50D1BD00FB9D9A /* iMap */ = {
 			isa = PBXGroup;
 			children = (
+				672A3A722C6365F6004D36EC /* Utils */,
+				672A3A712C63658B004D36EC /* View */,
+				672A3A702C6364A3004D36EC /* Apps */,
 				670164B72C60027E008DC254 /* CoreDataService */,
 				679ADBFB2C58CEDC0061158F /* Controllers */,
-				67148C632C57BA4100B34B1A /* Extensions */,
-				67148C602C57B91600B34B1A /* Annotations */,
-				67B41EFE2C50D1BD00FB9D9A /* AppDelegate.swift */,
-				67B41F002C50D1BD00FB9D9A /* SceneDelegate.swift */,
-				67B41F022C50D1BD00FB9D9A /* ViewController.swift */,
+				67148C602C57B91600B34B1A /* Model */,
 				67B41F042C50D1BD00FB9D9A /* Main.storyboard */,
 				67B41F0A2C50D1BE00FB9D9A /* Assets.xcassets */,
 				67B41F0C2C50D1BE00FB9D9A /* LaunchScreen.storyboard */,
 				67B41F0F2C50D1BE00FB9D9A /* Info.plist */,
 				67B41F072C50D1BD00FB9D9A /* iMap.xcdatamodeld */,
-				67148C582C57A90B00B34B1A /* LocationHelper.swift */,
 			);
 			path = iMap;
 			sourceTree = "<group>";
